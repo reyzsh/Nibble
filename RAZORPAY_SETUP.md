@@ -83,8 +83,8 @@ Response: { success, message, orderId }
 ## ⚙️ Environment Variables
 
 ```
-RAZORPAY_KEY_ID=rzp_test_SiZfjUQNUrjilC
-RAZORPAY_KEY_SECRET=o0Qmt9EVMnyf8UIevsxKvDVu
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_key_secret
 PORT=3000
 ```
 
