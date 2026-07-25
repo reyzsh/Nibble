@@ -16,7 +16,7 @@ A simple web application for campus food delivery built with Node.js and Express
 2. Navigate to the project directory.
 3. Install dependencies: `npm install`
 4. Start the server: `npm start`
-5. Open http://localhost:3000 in your browser.
+5. Open http://localhost:3000 in your browser. (WEB PAGE NOT LIVE YET)
 
 ## Usage
 
