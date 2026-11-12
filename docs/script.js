@@ -205,12 +205,12 @@ function displayBrands() {
     brandsGrid.innerHTML = '';
     
     const brands = [
-        { name: 'Nescafe', image: '/images/Nescafe.png?v=1', desc: 'Premium Coffee' },
-        { name: 'Samocha', image: '/images/Samocha.jpg?v=1', desc: 'Stories Around Chai' },
-        { name: 'Brio', image: '/images/Brio.jpg?v=1', desc: 'Fresh Flavors' },
-        { name: 'Urban', image: '/images/Urban.jpg?v=1', desc: 'Urban Eats' },
-        { name: 'Amul', image: '/images/Amul.jpg?v=1', desc: 'Tasty Treats' },
-        { name: 'Cafe', image: '/images/Cafe.jpg?v=1', desc: 'Cafe Delights' }
+        { name: 'Nescafe', image: 'images/Nescafe.png?v=1', desc: 'Premium Coffee' },
+        { name: 'Samocha', image: 'images/Samocha.jpg?v=1', desc: 'Stories Around Chai' },
+        { name: 'Brio', image: 'images/Brio.jpg?v=1', desc: 'Fresh Flavors' },
+        { name: 'Urban', image: 'images/Urban.jpg?v=1', desc: 'Urban Eats' },
+        { name: 'Amul', image: 'images/Amul.jpg?v=1', desc: 'Tasty Treats' },
+        { name: 'Cafe', image: 'images/Cafe.jpg?v=1', desc: 'Cafe Delights' }
     ];
     
     brands.forEach(brand => {
@@ -378,7 +378,7 @@ function checkout() {
             currency: data.currency,
             name: 'Nibble - Campus Food Delivery',
             description: 'Order food from campus stores',
-            image: '/images/psit.png',
+            image: 'images/psit.png',
             order_id: data.order_id,
             handler: function(response) {
                 // Step 3: Verify payment signature on backend
