@@ -238,25 +238,27 @@ function displayBrands() {
     brandsGrid.parentElement.appendChild(backSection);
 }
 
-
 function loadMenu() {
     fetch('menu.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Menu request failed: ' + response.status);
+                throw new Error('Failed to load menu');
             }
             return response.json();
         })
         .then(data => {
             menuItems = data;
-            console.log('Menu loaded:', menuItems);
+
+            console.log('Nibble menu loaded:', menuItems);
+
+            // Render the products immediately
             displayMenu();
+            updateCart();
         })
         .catch(error => {
-            console.error('Menu loading failed:', error);
+            console.error('Menu loading error:', error);
         });
 }
-
 
 function displayMenu() {
     const menuDiv = document.getElementById('menu');
