@@ -239,11 +239,25 @@ function displayBrands() {
 }
 
 function loadMenu() {
-    fetch('/menu')
-    .then(res => res.json())
-    .then(data => {
-        menuItems = data;
-    });
+    fetch('menu.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load menu');
+            }
+            return response.json();
+        })
+        .then(data => {
+            menuItems = data;
+            console.log('Nibble menu loaded:', menuItems);
+
+            const app = document.getElementById('app');
+            if (app && app.style.display !== 'none') {
+                displayMenu();
+            }
+        })
+        .catch(error => {
+            console.error('Menu loading error:', error);
+        });
 }
 
 function displayMenu() {

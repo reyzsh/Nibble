@@ -1,0 +1,38 @@
+
+[
+  {
+    "id": 1,
+    "name": "Doritos",
+    "price": 30,
+    "category": "Snacks",
+    "image": "images/doritos.jpg?v=1"
+  },
+  {
+    "id": 2,
+    "name": "Lays",
+    "price": 30,
+    "category": "Snacks",
+    "image": "images/Lays.jpg?v=1"
+  },
+  {
+    "id": 3,
+    "name": "KitKat",
+    "price": 40,
+    "category": "Desserts",
+    "image": "images/Kitkat.jpg?v=1"
+  },
+  {
+    "id": 4,
+    "name": "Coffee",
+    "price": 60,
+    "category": "Beverages",
+    "image": "images/coffee.jpg?v=1"
+  },
+  {
+    "id": 5,
+    "name": "Diet Coke",
+    "price": 25,
+    "category": "Beverages",
+    "image": "images/diet_coke.jpg?v=1"
+  }
+]
