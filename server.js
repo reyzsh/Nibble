@@ -10,21 +10,34 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.static('public'));
+app.get('/api/health', (req, res) => {
+    res.json({
+        success: true,
+        application: 'Nibble',
+        status: 'running',
+        paymentsEnabled: false
+    });
+});
 
 // Initialize Razorpay
-const razorpay = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET
-});
+const razorpay = (
+    process.env.RAZORPAY_KEY_ID &&
+    process.env.RAZORPAY_KEY_SECRET
+)
+    ? new Razorpay({
+        key_id: process.env.RAZORPAY_KEY_ID,
+        key_secret: process.env.RAZORPAY_KEY_SECRET
+    })
+    : null;
 
 // In-memory data
 let orders = [];
 let menu = [
-    { id: 1, name: 'Doritos', price: 30, category: 'Snacks', image: '/images/doritos.jpg?v=1' },
-    { id: 2, name: 'Lays', price: 30, category: 'Snacks', image: '/images/Lays.jpg?v=1' },
-    { id: 3, name: 'KitKat', price: 40, category: 'Desserts', image: '/images/Kitkat.jpg?v=1' },
-    { id: 4, name: 'Coffee', price: 60, category: 'Beverages', image: '/images/coffee.jpg?v=1' },
-    { id: 5, name: 'Diet Coke', price: 25, category: 'Beverages', image: '/images/diet_coke.jpg?v=1' },
+    { id: 1, name: 'Doritos', price: 30, category: 'Snacks', image: 'images/doritos.jpg?v=1' },
+    { id: 2, name: 'Lays', price: 30, category: 'Snacks', image: 'images/Lays.jpg?v=1' },
+    { id: 3, name: 'KitKat', price: 40, category: 'Desserts', image: 'images/Kitkat.jpg?v=1' },
+    { id: 4, name: 'Coffee', price: 60, category: 'Beverages', image: 'images/coffee.jpg?v=1' },
+    { id: 5, name: 'Diet Coke', price: 25, category: 'Beverages', image: 'images/diet_coke.jpg?v=1' },
 ];
 
 const transporter = process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS
