@@ -238,27 +238,25 @@ function displayBrands() {
     brandsGrid.parentElement.appendChild(backSection);
 }
 
+
 function loadMenu() {
     fetch('menu.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Failed to load menu');
+                throw new Error('Menu request failed: ' + response.status);
             }
             return response.json();
         })
         .then(data => {
             menuItems = data;
-            console.log('Nibble menu loaded:', menuItems);
-
-            const app = document.getElementById('app');
-            if (app && app.style.display !== 'none') {
-                displayMenu();
-            }
+            console.log('Menu loaded:', menuItems);
+            displayMenu();
         })
         .catch(error => {
-            console.error('Menu loading error:', error);
+            console.error('Menu loading failed:', error);
         });
 }
+
 
 function displayMenu() {
     const menuDiv = document.getElementById('menu');
